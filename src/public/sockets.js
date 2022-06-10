@@ -2,7 +2,7 @@
 const socket = io(); 
 
 export const loadProducts = (divProductos) =>{
-    socket.on('server:loadProducts', (productos) => {
+    socket.on('client:newMessage', (productos) => {
         productos.forEach(producto =>{
             return(
                 divProductos.innerHTML+= 
@@ -30,15 +30,23 @@ export const saveMenssage = (mensaje)=>{
 };
 
 export const loadMessages = (divMensajes)=>{
-    socket.on('server:loadMessages',(mensajes)=>{
-        mensajes.map(mensaje =>{
+    socket.on('server:loadMenssages',(mensajes)=>{
+        mensajes.map(mensaje=>{
             return(
-                divMensajes.innerHTML += 
-                `<div>
-                    <strong>${mensaje[0].mail}</strong>
-                    <em>${mensaje[0].mensajes}</em>
-                </div>`
+                divMensajes.innerHTML+=
+                `<strong>${mensaje.mail}</strong>
+                <em>${mensaje.mensajes}</em>
+                <br>`
             );
-        }).join('');
+        });
+    });
+};
+
+export const newMessage = (divMensajes) =>{
+    socket.on('server:newMessage',nuevoMensaje=>{
+        divMensajes.innerHTML+=
+        `<strong>${nuevoMensaje[0].mail}</strong>
+        <em>${nuevoMensaje[0].mensajes}</em>
+        <br>`;
     });
 };

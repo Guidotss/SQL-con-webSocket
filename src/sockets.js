@@ -18,20 +18,19 @@ export default (io)=>{
 
         client.on('client:newProduct',async (producto)=>{
             const nuevoProducto = await apiProductos.create(producto); 
-            client.emit('server:newProduct',nuevoProducto); 
+            io.emit('server:newProduct',nuevoProducto); 
         }); 
 
         const emitMensaje = async()=>{
             const mensajes = await apiMensajes.getAll(); 
             io.emit('server:loadMenssages',mensajes);
-            console.log(mensajes);
         };
         emitMensaje();
 
 
         client.on('client:newMessage',async(mensaje)=>{
             const nuevoMensaje = await apiMensajes.create(mensaje);
-            console.log(nuevoMensaje);
+            io.emit('server:newMessage',nuevoMensaje); 
         });
 
     }); 

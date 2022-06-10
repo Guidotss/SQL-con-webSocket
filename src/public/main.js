@@ -1,4 +1,4 @@
-import {loadProducts,saveProduct,newProduct,saveMenssage,loadMessages} from './sockets.js'; 
+import {loadProducts,saveProduct,newProduct,saveMenssage,loadMessages,newMessage} from './sockets.js'; 
 
 const form = document.getElementById('productForm'); 
 const nombreProducto = document.getElementById('nombre'); 
@@ -26,7 +26,7 @@ form.addEventListener('submit', (e) =>{
 }); 
 
 loadMessages(divMensajes);
-
+newMessage(divMensajes); 
 
 enviar.addEventListener('click',() =>{
     const mensajes ={
