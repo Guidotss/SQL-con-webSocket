@@ -4,9 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Productos</title>
 </head>
 <body>
-    <h1>hola</h1>
+    <form id="productForm">
+        <input id="nombre" type="text" placeholder="Nombre..." name="nombre">
+        <input id="url" type="url" placeholder="Url..." name="url">
+        <input id="precio" type="number" placeholder="Precio..." name="precio">
+        <button>Agregar</button>
+    </form>
+
+    <div id="productos"></div>
+
+   <input id="mail" name="mail" type="text" placeholder="ingrese su e-mail...">
+   <div id="mensajes"></div>
+   <input id="mensaje" name="mensajes" type="text" placeholder="Mensaje...">
+   <button id="enviar">Enviar</button>
+
+<script src="/socket.io/socket.io.min.js"></script>
+<script src="./main.js" type="module"></script>
 </body>
 </html>
