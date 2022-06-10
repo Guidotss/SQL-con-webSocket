@@ -6,11 +6,15 @@ export const loadProducts = (divProductos) =>{
         productos.map(producto =>{
             return(
                 divProductos.innerHTML+= 
-                `<ul>
-                    <li>${producto.nombre}</li>
-                    <li>${producto.url}</li>
-                    <li>${producto.precio}</li>
-                </ul>`
+               `<div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">${producto.nombre}</h5>
+                    </div>
+                    <ul>
+                        <li>${producto.url}</li>
+                        <li>${producto.precio}</li>
+                    </ul>
+               </div>`
             );
         });
     });
@@ -23,7 +27,15 @@ export const saveProduct = (producto) => {
 export const newProduct = (divProductos) =>{
     socket.on('server:newProduct',nuevoProducto =>{
         divProductos.innerHTML+= 
-        `<li>${nuevoProducto[0].nombre}</li>`;
+        `<div class="card">
+             <div class="card-body">
+                 <h5 class="card-title">${nuevoProducto[0].nombre}</h5>
+             </div>
+             <ul>
+                <li>${nuevoProducto[0].url}</li>
+                <li>${nuevoProducto[0].precio}</li>
+             </ul>
+        </div>`;
     }); 
 };
 
