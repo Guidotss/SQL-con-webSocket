@@ -3,11 +3,13 @@ const socket = io();
 
 export const loadProducts = (divProductos) =>{
     socket.on('client:newMessage', (productos) => {
-        productos.forEach(producto =>{
+        productos.map(producto =>{
             return(
                 divProductos.innerHTML+= 
                 `<ul>
                     <li>${producto.nombre}</li>
+                    <li>${producto.url}</li>
+                    <li>${producto.precio}</li>
                 </ul>`
             );
         });
