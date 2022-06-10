@@ -4,22 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/estilos.css">
+    <link rel="stylesheet" href="./styles/bootstrap.min.css">
     <title>Productos</title>
 </head>
 <body>
-    <form id="productForm">
-        <input id="nombre" type="text" placeholder="Nombre..." name="nombre">
-        <input id="url" type="url" placeholder="Url..." name="url">
-        <input id="precio" type="number" placeholder="Precio..." name="precio">
-        <button>Agregar</button>
-    </form>
+    <div class="card">
+        <div class="card-body">
+         <h5 class="card-title">Agregar productos</h5>
+             <form id="productForm">
+                 <input id="nombre" type="text" placeholder="Nombre del producto..." class="form-control" name="nombre">
+                 <input id="url" type="url" placeholder="Url..." class="form-control" name="url">
+                 <input id="precio" type="number" placeholder="Precio..." class="form-control" name="precio">
+                 <button type="submit" class="btn btn-primary">Agregar</button>
+             </form>
+        </div>
+     </div>
 
     <div id="productos"></div>
 
-   <input id="mail" name="mail" type="text" placeholder="ingrese su e-mail...">
-   <div id="mensajes"></div>
-   <input id="mensaje" name="mensajes" type="text" placeholder="Mensaje...">
-   <button id="enviar">Enviar</button>
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Centro de mensajes</h5>
+            <input id="mail" type="email" placeholder="email..." class="form-control" name="mail">
+            <hr>
+            <div id="mensajes"></div>
+            <input id="mensaje" type="text" class="form-control" name="mensajes" placeholder="mensaje...">
+            <button id="enviar" class="btn btn-secondary">Enviar</button>
+        </div>
+    </div>
 
 <script src="/socket.io/socket.io.min.js"></script>
 <script src="./main.js" type="module"></script>
