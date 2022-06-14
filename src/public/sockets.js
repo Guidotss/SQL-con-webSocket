@@ -2,42 +2,25 @@
 const socket = io(); 
 
 export const loadProducts = (divProductos) =>{
-    socket.on('client:newMessage', (productos) => {
-        productos.map(producto =>{
-            return(
-                divProductos.innerHTML+= 
-               `<div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">${producto.nombre}</h5>
-                    </div>
-                    <ul>
-                        <li>${producto.url}</li>
-                        <li>${producto.precio}</li>
-                    </ul>
-               </div>`
-            );
+    socket.on('server:loadProducts', (productos) => {
+        console.log(productos);
+        productos.forEach(producto =>{
+            
+            divProductos.innerHTML+= 
+            `<div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">${producto.nombre}</h5>
+                </div>
+                <ul>
+                    <li>${producto.url}</li>
+                    <li>${producto.precio}</li>
+                </ul>
+            </div>`; 
+            
         });
     });
 };
 
-export const saveProduct = (producto) => {
-    socket.emit('client:newProduct',producto); 
-};
-
-export const newProduct = (divProductos) =>{
-    socket.on('server:newProduct',nuevoProducto =>{
-        divProductos.innerHTML+= 
-        `<div class="card">
-             <div class="card-body">
-                 <h5 class="card-title">${nuevoProducto[0].nombre}</h5>
-             </div>
-             <ul>
-                <li>${nuevoProducto[0].url}</li>
-                <li>${nuevoProducto[0].precio}</li>
-             </ul>
-        </div>`;
-    }); 
-};
 
 export const saveMenssage = (mensaje)=>{
     socket.emit('client:newMessage',mensaje);

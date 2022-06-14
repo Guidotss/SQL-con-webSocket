@@ -7,7 +7,6 @@ export async function crearTableMensajes(){
         table.string('mail').notNullable(); 
         table.string('mensajes').notNullable(); 
     });
-
     console.log('sqlite3 creada');
 }
 

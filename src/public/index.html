@@ -9,21 +9,15 @@
     <title>Productos</title>
 </head>
 <body>
-    <div class="card">
-        <div class="card-body">
-         <h5 class="card-title">Agregar productos</h5>
-             <form id="productForm">
-                 <input id="nombre" type="text" placeholder="Nombre del producto..." class="form-control" name="nombre">
-                 <input id="url" type="url" placeholder="Url..." class="form-control" name="url">
-                 <input id="precio" type="number" placeholder="Precio..." class="form-control" name="precio">
-                 <button type="submit" class="btn btn-primary">Agregar</button>
-             </form>
-        </div>
-     </div>
-
+    <div>
+        <ul>
+            <li>
+                <a href="http://localhost:8080/productos">Agregar Productos</a>
+            </li>
+        </ul>
+    </div>
     <div id="productos"></div>
-
-
+    
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">Centro de mensajes</h5>
@@ -35,7 +29,7 @@
         </div>
     </div>
 
-<script src="/socket.io/socket.io.min.js"></script>
+<script src='./socket.io/socket.io.min.js'></script>
 <script src="./main.js" type="module"></script>
 </body>
 </html>

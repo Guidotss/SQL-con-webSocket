@@ -6,6 +6,7 @@ import './dataBase/productos';
 import './dataBase/tablaMensajes';
 import {Server as ioServer} from 'socket.io'; 
 import 'dotenv/config'; 
+import routerProductos from './routers/routerProductos'; 
 
 
 const app = express(); 
@@ -17,6 +18,8 @@ app.use(morgan('dev'));
 app.use(express.static(__dirname + '/public')); 
 app.use(express.json()); 
 app.use(express.urlencoded({extended:true})); 
+app.use('/',routerProductos); 
+
 
 // eslint-disable-next-line no-undef
 const PORT = process.env.PORT || 3030; 
